@@ -1,26 +1,23 @@
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+  <h2><%= @product.title %></h2>
 
+  <i>Description:</i>
 <p>
-  <strong>Description:</strong>
   <%= @product.description %>
 </p>
+<hr>
 
-  <h2>Leave your feedback for this product</h2>
+  <h3>Leave your feedback for this product</h3>
   <%= form_for([@product, @product.reviews.build]) do |f| %>
     <p>
-      <%= f.label :msg %><br>
       <%= f.text_area :msg %>
     </p>
     <p>
-      <%= f.submit %>
+      <%= f.submit 'Create feedback' %>
     </p>
   <% end %>
 
 
-<h2>Reviews</h2>
+<h3>Feedbacks</h3>
 <% @product.reviews.each do |review| %>
 
   <p>
@@ -29,7 +26,7 @@
   </p>
 
   <p>
-    <i>HERE ADD USER NAME:</i>
+    <i>HERE WILL ADD USER NAME</i>
   </p>
 
   <p>
@@ -42,4 +39,3 @@
 <br/>
 <%= link_to 'Back', products_path %>
 <%= link_to 'Edit', edit_product_path(@product) %>
-     
