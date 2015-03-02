@@ -13,6 +13,11 @@
   </p>
 
   <p>
+    <%= f.label :choose_a_category %><br>
+    <%= f.association :category, collecion: Category.all %>
+  </p>
+
+  <p>
     <%= f.submit %>
   </p>
 <% end %>
