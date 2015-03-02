@@ -8,7 +8,17 @@
 </head>
 <body>
 
-<%= yield %>
-
+<div class="container">
+    <div class="row">
+      <div class="col-md-2">
+          <h3>Categiries</h3>
+          <% Category.all.each do |category| %>
+          <li><%= link_to category.name_cat, category_path(category) %></li>>
+          <% end %>
+          <%=link_to 'Add new category', new_category_path %>
+      </div>    
+      <div class="col-md-8"><%= yield %></div>
+    </div>
+  </div>
 </body>
 </html>
