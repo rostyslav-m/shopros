@@ -14,7 +14,8 @@
 
   <p>
     <%= f.label :choose_a_category %><br>
-    <%= f.association :category, collecion: Category.all %>
+    <%= f.association :category, label_method: "#{:name_cat}", as: :radio_buttons %>
+
   </p>
 
   <p>
