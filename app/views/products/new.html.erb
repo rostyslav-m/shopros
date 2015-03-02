@@ -1,6 +1,6 @@
 <h1>New product</h1>
 
-<%= form_for Product.new do |f| %>
+<%= simple_form_for Product.new do |f| %>
 
   <p>
     <%= f.label :title %><br>
@@ -14,6 +14,7 @@
 
   <p>
     <%= f.label :choose_a_category %><br>
+    <%= f.association :category, collecion: Category.all %>
   </p>
 
   <p>
