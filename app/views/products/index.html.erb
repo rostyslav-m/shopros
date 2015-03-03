@@ -3,16 +3,15 @@
 
   <table cols="3"  >
     <tr>
-      <th width="80%">Title</th>
-      <th width="80px" >Category</th>
+      <th width="70%">Title</th>
+      <th width="80px" >Cetegory</th>
       <th width="40px" ></th>
       <th width="40px" ></th>
     </tr>
     <% @products.each do |product| %>
       <tr>
         <td><%= link_to product.title, product_path(product) %></td>
-        <td><%= link_to product.category.name_cat, category_path(product) %></td>
-        
+        <td><%= product.category.name_cat if product.category %></td>
         <% if (current_user != nil)&&(current_user.is_admin == true) %>
           <td><%= link_to 'Edit', edit_product_path(product) %></td>
           <td><%= link_to 'Destroy', product_path(product),

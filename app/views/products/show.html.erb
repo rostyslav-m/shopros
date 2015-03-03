@@ -17,10 +17,11 @@
 
 <h3>Feedbacks</h3>
 <% @product.reviews.each do |review| %>
-  <p><%= review.msg %></p>
+  <p><%= review.msg %><br/>
+  <i><b><%= review.user.email if review.user %></b></i></p>
   <p>
   <% if (current_user != nil)&&(current_user.is_admin == true) %>
-    <%= link_to 'Delete review', [review.product, review], # product_review_path(@review), 
+    <%= link_to 'Delete review', [review.product, review],
                  method:  :delete,
                  data: { confirm: 'Are you sure?' } %>
   <% end %>    

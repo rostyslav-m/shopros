@@ -22,7 +22,7 @@
         <li>
           <div style="text-indent: 30px; font-size: 120%; font-weight: bold;">
             <% if (current_user != nil)&&(current_user.is_admin == true) %>
-              <%= 'Hi Admin' %>
+              <%= 'Hi Admin! ' %> <%= link_to 'Add new product', new_product_path %>
               <% else %>
               <%= link_to 'Sign in as Admin for edit or add products and categories', new_user_session_path, method: :get %>
             <% end %>

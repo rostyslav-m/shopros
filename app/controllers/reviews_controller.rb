@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = @product.reviews.new(review_params)
-#    @review.user = current_user
+    @review.user = current_user
     @review.save
     redirect_to product_path(@product)
   end
