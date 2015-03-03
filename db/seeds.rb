@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(email: "admin@shop.ros", password: "freedom123", is_admin: true, name: "Admin")
+User.create!(email: "guest@shop.ros", password: "123345678", is_admin: false, name: "Guest")
