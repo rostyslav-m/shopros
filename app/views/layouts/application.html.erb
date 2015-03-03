@@ -19,8 +19,18 @@
       <ul class="nav navbar-nav">
         <li><a href="/categories">Categories</a></li>
         <li><a href="/products">Products</a></li>
+        <li>
+          <div style="text-indent: 30px; font-size: 120%; font-weight: bold;">
+            <% if (current_user != nil)&&(current_user.is_admin == true) %>
+              <%= 'Hi Admin! ' %> <%= link_to 'Add new product', new_product_path %>
+              <% else %>
+              <%= link_to 'Sign in as Admin for edit or add products and categories', new_user_session_path, method: :get %>
+            <% end %>
+          </div>
+        </li>
       </ul>
-      
+
+
       <ul class="nav navbar-nav navbar-right">
         <div id="user_nav">
           <% if user_signed_in? %>
@@ -44,7 +54,13 @@
           <% Category.all.each do |category| %>
           <li><%= link_to category.name_cat, category_path(category) %></li>
           <% end %>
+
+
+          <% if (current_user != nil)&&(current_user.is_admin == true) %>
           <%=link_to 'Add new category', new_category_path %>
+          <% end %>
+
+
       </div>    
       <div class="col-md-8"><%= yield %></div>
     </div>
