@@ -1,6 +1,6 @@
 <h1>New product</h1>
 
-<%= form_for Product.new do |f| %>
+<%= simple_form_for Product.new do |f| %>
 
   <p>
     <%= f.label :title %><br>
@@ -10,6 +10,12 @@
   <p>
     <%= f.label :description %><br>
     <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :choose_a_category %><br>
+    <%= f.association :category, label_method: "#{:name_cat}", as: :radio_buttons %>
+
   </p>
 
   <p>
