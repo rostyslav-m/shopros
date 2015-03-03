@@ -1,0 +1,31 @@
+<h1>SHOPros</h1>
+<p>This is simple products catalog. Was been made for training</p>
+<p>Accessing the app, user can see list of products, additionally he filter them by category. Clicking on the product will show full info and reviews for that item. After signing in, user can add reviews for products.</p>
+<p>There is the superuser - Admin (email: admin@shop.ros, password: freedom123), which can create products and categories.</p>
+
+<b>User permissions:</b>
+<dl>
+  <td>Guest</td>
+    <dd>can see products listing, open product page</dd>
+  <td>Signed In</td>
+    <dd>guest + add product reviews</dd>
+  <td>Super User</td>
+    <dd>guest + signed in + manage categories, products, reviews (create/edit/remove)</dd>
+</dl>
+
+<b>Models:</b>
+<ul>
+  <li>Category</li>
+    <p>name:string</p>
+  <li>Product</li>
+    <p>title:string<br/>
+    description:text<br/>
+    category:references</p>
+  <li>Review</li>
+    <p>msg:text<br/>
+    product:reference<br/>
+    user:reference</p>
+  <li>User</li>
+    <p>devise<br/>
+    is_admin:boolean</p> 
+</ul>
