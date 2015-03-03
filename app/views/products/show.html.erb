@@ -1,41 +1,42 @@
   <h2><%= @product.title %></h2>
 
   <i>Description:</i>
-<p>
-  <%= @product.description %>
-</p>
+<p><%= @product.description %></p>
 <hr>
 
-  <h3>Leave your feedback for this product</h3>
+<% if current_user != nil %>
+  <h3><%= 'Leave your feedback for this product' %></h3>
   <%= form_for([@product, @product.reviews.build]) do |f| %>
-    <p>
-      <%= f.text_area :msg %>
-    </p>
-    <p>
-      <%= f.submit 'Create feedback' %>
-    </p>
+    <p><%= f.text_area :msg %></p>
+    <p><%= f.submit 'Create feedback' %></p>
   <% end %>
 
+  <% else %>
+  <%= link_to 'Sign in for leave your feedback', new_user_session_path, method: :get %>
+<% end %>
 
 <h3>Feedbacks</h3>
 <% @product.reviews.each do |review| %>
-
+  <p><%= review.msg %></p>
   <p>
-    <strong>Review:</ctrong>
-    <%= review.msg %>
-  </p>
-
-  <p>
-    <i>HERE WILL ADD USER NAME</i>
-  </p>
-
-  <p>
-    <%= link_to 'Delete review', [review.product, review],
+  <% if (current_user != nil)&&(current_user.is_admin == true) %>
+    <%= link_to 'Delete review', [review.product, review], # product_review_path(@review), 
                  method:  :delete,
                  data: { confirm: 'Are you sure?' } %>
+  <% end %>    
   </p>
+
+
 <% end %>
 
 <br/>
-<%= link_to 'Back', products_path %>
-<%= link_to 'Edit', edit_product_path(@product) %>
+<%= link_to 'Back to product list', products_path %>
+<p>or</p>
+<% if (current_user != nil)&&(current_user.is_admin == true) %>
+  <%= link_to 'Edit', edit_product_path(@product) %>
+  <%= link_to 'Delete', product_path(@product),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+               <% else %>
+  <%= link_to 'Sign in as Admin for delete and edit the product', new_user_session_path, method: :get %>
+<% end %>
