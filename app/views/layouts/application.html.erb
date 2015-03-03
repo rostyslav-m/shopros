@@ -24,7 +24,7 @@
             <% if (current_user != nil)&&(current_user.is_admin == true) %>
               <%= 'Hi Admin! ' %> <%= link_to 'Add new product', new_product_path %>
               <% else %>
-              <%= link_to 'Sign in as Admin for edit or add products and categories', new_user_session_path, method: :get %>
+              <%= link_to 'Sign in as Admin for edit or add products and categories', new_user_session_path, method: :get %><br/><div style="text-indent: 10px; font-size: 80%; font-weight: normal;">Email: admin@shop.ros, password: freedom123</div>
             <% end %>
           </div>
         </li>
@@ -54,13 +54,9 @@
           <% Category.all.each do |category| %>
           <li><%= link_to category.name_cat, category_path(category) %></li>
           <% end %>
-
-
           <% if (current_user != nil)&&(current_user.is_admin == true) %>
           <%=link_to 'Add new category', new_category_path %>
           <% end %>
-
-
       </div>    
       <div class="col-md-8"><%= yield %></div>
     </div>
