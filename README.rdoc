@@ -4,7 +4,7 @@ This is simple products catalog. Was been made for training.
 
 Accessing the app, user can see list of products, additionally he filter them by category. Clicking on the product will show full info and reviews for that item. After signing in, user can add reviews for products.
 
-There is the superuser - Admin (email: admin@shop.ros, password: freedom123), which can create products and categories.</p>
+There is the superuser - Admin (email: admin@shop.ros, password: freedom123), which can create products and categories.
 
 There is the guestuser - Guest (email: guest@shop.ros, password: 123345678). You also can make a new user.
 
@@ -32,8 +32,7 @@ There is the guestuser - Guest (email: guest@shop.ros, password: 123345678). You
     devise
     is_admin:boolean 
   
-<b>Deploy on Heroku:</b> 
-     https://shopros.herokuapp.com/
+Deploy on Heroku:  https://shopros.herokuapp.com/
 
   Ruby on Rails junior will be happy to join team of mentors to get more experience.  
     Best regards Ros.  
