@@ -32,7 +32,7 @@ There is the guestuser - Guest (email: guest@shop.ros, password: 123345678). You
     devise
     is_admin:boolean 
   
-  <b>Deploy on Heroku</b>
+<b>Deploy on Heroku:</b> 
      https://shopros.herokuapp.com/
 
   Ruby on Rails junior will be happy to join team of mentors to get more experience.  
