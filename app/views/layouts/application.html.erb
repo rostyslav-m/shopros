@@ -23,7 +23,7 @@
             <% if (current_user != nil)&&(current_user.is_admin == true) %>
               <%= 'Hi Admin! ' %> <%= link_to 'Add new product', new_product_path %>
               <% else %>
-              <%= link_to 'Sign in as Admin for edit or add products and categories', new_user_session_path, method: :get %><br/><div style="text-indent: 10px; font-size: 80%; font-weight: normal;">Email: admin@shop.ros, password: freedom123</div>
+              <%= link_to 'Sign in as Admin for edit or add products and categories', new_user_session_path, method: :get %><br/><div style="text-indent: 10px; font-size: 80%; font-weight: normal;">Email: admin@shop.ros, password: freedom123 / Email: guest@shop.ros, password:12345678</div>
             <% end %>
           </div>
         </li>

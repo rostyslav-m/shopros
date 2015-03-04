@@ -1,28 +1,39 @@
-== README
+<b>SHOPros</b>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is simple products catalog. Was been made for training.
 
-Things you may want to cover:
+Accessing the app, user can see list of products, additionally he filter them by category. Clicking on the product will show full info and reviews for that item. After signing in, user can add reviews for products.
 
-* Ruby version
+There is the superuser - Admin (email: admin@shop.ros, password: freedom123), which can create products and categories.
 
-* System dependencies
+There is the guestuser - Guest (email: guest@shop.ros, password: 123345678). You also can make a new user.
 
-* Configuration
+<b>User permissions:</b>
 
-* Database creation
+  Guest
+    can see products listing, open product page
+  Signed In
+    guest + add product reviews
+  Super User
+    guest + signed in + manage categories, products, reviews (create/edit/remove)
 
-* Database initialization
+<b>Models:</b>
+  Category
+    name:string
+  Product
+    title:string
+    description:text
+    category:references
+  Review
+    msg:text
+    product:reference
+    user:reference
+  User
+    devise
+    is_admin:boolean 
+  
+Deploy on Heroku:  https://shopros.herokuapp.com/
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  Ruby on Rails junior will be happy to join team of mentors to get more experience.  
+    Best regards Ros.  
+    ros55[at]ukr[dot]net
