@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
 
   before_filter :find_product
-#, only: [:show, :edit, :update, :destroy]
-
+  before_filter :user_admin, only: [:destroy]
+  
   def create
     @review = @product.reviews.new(review_params)
     @review.user = current_user
@@ -24,6 +24,11 @@ class ReviewsController < ApplicationController
   private
     def find_product   
       @product = Product.find(params[:product_id])
+    end
+
+  private
+    def user_admin
+      redirect_to products_path if ((current_user == nil)||(current_user.is_admin == false))
     end
 
 end

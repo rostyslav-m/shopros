@@ -38,6 +38,6 @@
   <%= link_to 'Delete', product_path(@product),
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
-               <% else %>
+  <% else %>
   <%= link_to 'Sign in as Admin for delete and edit the product', new_user_session_path, method: :get %>
 <% end %>
