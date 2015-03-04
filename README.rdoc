@@ -18,7 +18,6 @@ There is the guestuser - Guest (email: guest@shop.ros, password: 123345678). You
     guest + signed in + manage categories, products, reviews (create/edit/remove)
 
 <b>Models:</b>
-
   Category
     name:string
   Product
@@ -33,8 +32,9 @@ There is the guestuser - Guest (email: guest@shop.ros, password: 123345678). You
     devise
     is_admin:boolean 
   
-  <b>Deploy on Heroku</b> https://shopros.herokuapp.com/
+  <b>Deploy on Heroku</b>
+     https://shopros.herokuapp.com/
 
-Ruby on Rails junior will be happy to join team of mentors to get more experience.  
-Best regards Ros.  
-ros55[at]ukr[dot]net
+  Ruby on Rails junior will be happy to join team of mentors to get more experience.  
+    Best regards Ros.  
+    ros55[at]ukr[dot]net
