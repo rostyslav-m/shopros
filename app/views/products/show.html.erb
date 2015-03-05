@@ -17,8 +17,12 @@
 
 <h3>Feedbacks</h3>
 <% @product.reviews.each do |review| %>
+
+<% if review.id != nil %>
   <p><%= review.msg %><br/>
-  <i><b><%= review.user.email if review.user %></b></i></p>
+  <i><b>
+  <%= ( (review.user.name != "") ? review.user.name : review.user.email ) if review.user %>
+  </b></i></p>
   <p>
   <% if (current_user != nil)&&(current_user.is_admin == true) %>
     <%= link_to 'Delete review', [review.product, review],
@@ -26,6 +30,7 @@
                  data: { confirm: 'Are you sure?' } %>
   <% end %>    
   </p>
+<% end %>
 
 
 <% end %>
