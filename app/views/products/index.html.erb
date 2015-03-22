@@ -3,15 +3,19 @@
 
   <table cols="3"  >
     <tr>
-      <th width="70%">Title</th>
-      <th width="80px" >Cetegory</th>
+      <th width="60%">Title</th>
+      <th width="100px" > Created at </th>
+      <th width="80px" > Cetegory </th>
+      <th width="60px" > Feedbacks </th>
       <th width="40px" ></th>
       <th width="40px" ></th>
     </tr>
     <% @products.each do |product| %>
       <tr>
         <td><%= link_to product.title, product_path(product) %></td>
-        <td><%= product.category.name_cat if product.category %></td>
+        <td align="center"><%= product.created_at.strftime("%-d/%m/%Y") %></td>
+        <td align="center"><%= product.category.name_cat if product.category %></td>
+        <td align="center"><%= product.reviews.count %></td>
         <% if (current_user != nil)&&(current_user.is_admin == true) %>
           <td><%= link_to 'Edit', edit_product_path(product) %></td>
           <td><%= link_to 'Destroy', product_path(product),
