@@ -33,3 +33,23 @@
 </ul>
 
 <p>Ruby on Rails junior will be happy to join team of mentors to get more experience. <br/> Best regards Ros.<br/> ros55 [at] ukr [dot] net</p>
+
+<!-- Content Row -->
+<div class="row">
+  <% products = Product.last(3) %>
+  <% products.reverse_each do |prod| %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><i class="fa fa-fw fa-gift"></i><%= prod.title %></h4>
+        </div>
+        <div class="panel-body">
+          <p><%= prod.description %></p>
+          <p><%= link_to "More info", product_path(prod) %></p>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-md-4 -->
+  <% end %>
+</div>
+<!-- /.row -->
