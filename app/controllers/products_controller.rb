@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
   before_filter :user_admin,   only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+#    @products = Product.all
+
+    @search = Product.search(params[:q])
+    @products = @search.result(:distinct => true).order(:created_at).reverse_order.paginate(:page => params[:page], :per_page => 5)
+  
   end
 
   def show

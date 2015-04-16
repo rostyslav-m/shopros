@@ -1,6 +1,19 @@
-<h2>Complete list of products</h2>
+<h2><%= link_to 'Complete list of products', products_path %></h2>
+
+
 <br/>
 
+<%= search_form_for @search, url: search_products_path, method: :post do |f|  %>
+
+  <div class="field">
+    <%= f.text_field :title_or_description_cont %>
+    <br />
+    <%= f.collection_check_boxes :category_id_eq_any, Category.order(:name_cat), :id, :name_cat %>
+    <br />
+    <div class="actions"><%= f.submit "Search" %></div>
+  </div>
+<% end %>
+<hr>
   <table cols="3"  >
     <tr>
       <th width="60%">Title</th>
@@ -25,6 +38,8 @@
       </tr>
     <% end %>
   </table>
+
+<%= will_paginate @products %>
 
 <br/>
 
