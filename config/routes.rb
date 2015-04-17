@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :products do
     resources :reviews
+    collection do
+      match 'search' => 'products#index', :via => [:get, :post], :as => :search
+    end
   end
 
   resources :categories
